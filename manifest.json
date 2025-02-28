@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Asana Link Copier",
+  "version": "1.0",
+  "description": "Copy Asana task links in HTML format with a keyboard shortcut or menu item",
+  "permissions": ["activeTab", "clipboardWrite"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.asana.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "copy-asana-link": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+7",
+        "mac": "Command+Shift+7"
+      },
+      "description": "Copy Asana task link in HTML format"
+    }
+  }
+}
